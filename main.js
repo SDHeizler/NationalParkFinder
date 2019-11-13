@@ -28,25 +28,31 @@ function changeState(state) {
 function getParks(getState, resultNum) {
     const options = { method: "GET" };
     const url = `https://developer.nps.gov/api/v1/parks?limit=${resultNum}&${getState}&api_key=yPMKudzkm81S3EdXbKQKANCkSt1UocuaQ7IsSIaX`;
-
-    fetch(url, options)
-        .then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error(response.statusText);
-            }
-        })
-        .then(function (responseJson) {
-            displayResults(responseJson);
-        })
-        .catch(function (err) {
-            $('#errorContainer').append(`<h2>There was an Error: ${err.message}</h2>`)
-            $('#errorContatiner').show(300);
-            $('#errorContatiner').delay(3000).hide(300);
-            $('#js-state').val("");
-            $('#js-number').val('10');
-        })
+    if (resultNum > 50) {
+        $('#errorContainer').show(300);
+        $('#errorContainer').append(`<h3>Please enter a number less than 50</h3>`)
+        $('#errorContainer').delay(3000).hide(300);
+        $('#js-number').val('10');
+    } else {
+        fetch(url, options)
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(response.statusText);
+                }
+            })
+            .then(function (responseJson) {
+                displayResults(responseJson);
+            })
+            .catch(function (err) {
+                $('#errorContainer').append(`<h3>There was an Error: ${err.message}</h3>`)
+                $('#errorContainer').show(300);
+                $('#errorContainer').delay(3000).hide(300);
+                $('#js-state').val("");
+                $('#js-number').val('10');
+            })
+    }
 
 
 }
