@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>National Parks Finder</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h1>National Parks Finder</h1>
+    </header>
+    <main>
+        <form>
+            <label>State</label>
+            <input type="text" id="js-state" placeholder="Please Enter a State" name="State" required>
+            <label>Number of Results</label>
+            <input type="number" value="10" id="js-number" name="resultsnum">
+            <input type="Submit" id="button" value="Submit">
+        </form>
+        <section id="errorContainer">
+        </section>
+        <section id="resultsContainer">
+            <ul id="results">
+                <li>
+                    <h4></h4>
+                    <p></p>
+                    <a href="http://"></a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
