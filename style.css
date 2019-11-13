@@ -43,3 +43,18 @@ ul li a{
 ul li a:hover{
     color:orange;
 }
+#errorContainer{
+    line-height:4em;
+    height:5em;
+    width:20em;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:3em;
+    text-align: center;
+    color:red;
+    background:rgb(248, 212, 212);
+    border:1px solid red;
+}
+.hidden{
+    display: none;
+}

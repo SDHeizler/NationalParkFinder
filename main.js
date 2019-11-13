@@ -31,11 +31,23 @@ function getParks(getState, resultNum) {
 
     fetch(url, options)
         .then(function (response) {
-            return response.json();
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error(response.statusText);
+            }
         })
         .then(function (responseJson) {
             displayResults(responseJson);
         })
+        .catch(function (err) {
+            $('#errorContainer').append(`<h2>There was an Error: ${err.message}</h2>`)
+            $('#errorContatiner').show(300);
+            $('#errorContatiner').delay(3000).hide(300);
+            $('#js-state').val("");
+            $('#js-number').val('10');
+        })
+
 
 }
 // Loop through the response and display the results on the screen
